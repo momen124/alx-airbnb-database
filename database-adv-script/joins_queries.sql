@@ -1,20 +1,37 @@
--- 1. INNER JOIN to retrieve all bookings and their respective users
-SELECT b.booking_id, b.property_id, b.check_in_date, b.check_out_date, 
-       u.user_id, u.username, u.email
-FROM bookings b
-INNER JOIN users u ON b.user_id = u.user_id;
+-- This query retrieves booking details along with the associated user information.
+-- It uses an INNER JOIN to combine the booking and users tables based on the user_id.
+-- The result will include booking_id, booking_date, user_id, and username for each booking.
+SELECT
+b.booking_id,
+b.booking_date,
+u.user_id,
+u.username,
+FROM booking b
+INNER JOIN users u
+ON b.user_id = u.user_id;
 
--- 2. LEFT JOIN to retrieve all properties and their reviews (including properties with no reviews)
--- Ordered by property_id and review creation date
-SELECT p.property_id, p.title, p.description, p.price_per_night,
-       r.review_id, r.rating, r.comment, r.created_at
-FROM properties p
-LEFT JOIN reviews r ON p.property_id = r.property_id
-ORDER BY p.property_id ASC, r.created_at DESC;
+---using LEFT JOIN to retreive all properties and their reviews, including properties that have no reviews.
+--the result will include property_id, title, review_id, rating, and comment for each property.
 
--- 3. FULL OUTER JOIN to retrieve all users and all bookings
--- (including users with no bookings and bookings not linked to users)
-SELECT u.user_id, u.username, u.email,
-       b.booking_id, b.property_id, b.check_in_date, b.check_out_date
+SELECT
+p.property_id,
+p.title,
+r.review_id,
+r.rating,
+r.comment,
+FROM properties p ORDER BY p.property_id
+LEFT JOIN reviews r
+ON p.property_id = r.property_id;
+
+--using FULL OUTER JOIN to retrieve all users and all bookings, even if the user has no booking or a booking is not linked to a user.
+--result will include user_id, username, booking_id, and booking_date for each user and booking.
+
+SELECT
+u.user_id,
+u.username,
+b.booking_id,
+b.booking_date,
 FROM users u
-FULL OUTER JOIN bookings b ON u.user_id = b.user_id;
+FULL OUTER JOIN booking b
+ON u.user_id = b.user_id;
+

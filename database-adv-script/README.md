@@ -1,25 +1,47 @@
-Unleashing Advanced Querying Power
-# Subqueries in SQL: Practice Exercises
+# Unleashing Advanced Querying Power
 
-This directory contains SQL scripts demonstrating the use of subqueries in database querying. It includes examples of both correlated and non-correlated subqueries.
+## 📚 About the Project
+This project focuses on advanced SQL querying and performance optimization. It simulates real-world data challenges to help you build scalable, efficient, and production-ready SQL solutions.
 
-## Queries
+## 🎯 Learning Objectives
+- Master advanced SQL queries: JOINs, subqueries, aggregations, and window functions.
+- Optimize performance using `EXPLAIN`, indexing, and query refactoring.
+- Implement partitioning for scalable data management.
+- Monitor and refine database performance like a true DBA.
 
-### Query 1: Non-Correlated Subquery
-- **Objective**: Find all properties where the average rating is greater than 4.0.
-- **Description**:
-  - The inner query calculates the average rating for each property in the `Review` table.
-  - The outer query retrieves the details of properties meeting the condition from the `Property` table.
+## ✅ Requirements
+- Solid SQL fundamentals and relational database knowledge.
+- Git/GitHub repo management.
+- Familiarity with PostgreSQL performance tools (`EXPLAIN`, `ANALYZE`).
 
-### Query 2: Correlated Subquery
-- **Objective**: Identify users who have made more than 3 bookings.
-- **Description**:
-  - The subquery counts the number of bookings per user in the `Booking` table.
-  - The outer query selects users where the count exceeds 3.
+## 🚀 Key Highlights
+- **Joins & Subqueries:** Write and combine complex SQL logic.
+- **Window Functions:** Perform advanced ranking and analytics.
+- **Indexing:** Create and test indexes for performance boosts.
+- **Query Optimization:** Refactor inefficient queries for speed.
+- **Partitioning:** Split large tables for faster access.
+- **Monitoring:** Use tools to assess and improve database health.
 
-## How to Run
+## 📁 Repository Structure
+```bash
+alx-airbnb-database/
+└── database-adv-script/
+    ├── joins_queries.sql
+    ├── subqueries.sql
+    ├── aggregations_and_window_functions.sql
+    ├── database_index.sql
+    ├── perfomance.sql
+    ├── optimization_report.md
+    ├── partitioning.sql
+    ├── partition_performance.md
+    └── performance_monitoring.md
+```
+🧪 Tasks Overview
 
-1. Open your SQL client or terminal connected to the database.
-2. Run the script file `subqueries.sql` using the appropriate command:
-   ```bash
-   source subqueries.sql;
+* joins_queries.sql: INNER, LEFT, FULL JOINs on bookings and users.
+* subqueries.sql: Correlated and non-correlated subqueries.
+* aggregations_and_window_functions.sql: GROUP BY and window functions.
+* database_index.sql: Create indexes and measure performance.
+* perfomance.sql: Optimize complex multi-table queries.
+* partitioning.sql: Apply RANGE partitioning on Booking table.
+* performance_monitoring.md: Performance analysis using EXPLAIN ANALYZE.
